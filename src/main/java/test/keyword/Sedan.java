@@ -4,9 +4,9 @@ public class Sedan implements Automobile {
 
 	private String make;
 	private String model;
-	private String price;
+	private Double price;
 
-	public Sedan(String make, String model, String price) {
+	public Sedan(String make, String model, Double price) {
 		this.make = make;
 		this.model = model;
 		this.price = price;
@@ -17,16 +17,13 @@ public class Sedan implements Automobile {
 		return make;
 	}
 
-	// private not allowed; when instantiate it's going to be public by default thus granting higher privilage is not allowed
-	// protected not allowed; same with above reason
-	// no access modifier also not allowed
 	@Override
 	public String getModel() {
 		return model;
 	}
 
 	@Override
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
