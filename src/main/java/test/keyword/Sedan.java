@@ -1,6 +1,5 @@
 package test.keyword;
 
-// because we implements Automobile thus we need to create all methods from Automobile 
 public class Sedan implements Automobile {
 
 	private String make;
@@ -15,19 +14,19 @@ public class Sedan implements Automobile {
 
 	@Override
 	public String getMake() {
-		// TODO Auto-generated method stub
 		return make;
 	}
 
+	// private not allowed; when instantiate it's going to be public by default thus granting higher privilage is not allowed
+	// protected not allowed; same with above reason
+	// no access modifier also not allowed
 	@Override
 	public String getModel() {
-		// TODO Auto-generated method stub
 		return model;
 	}
 
 	@Override
 	public String getPrice() {
-		// TODO Auto-generated method stub
 		return price;
 	}
 
@@ -35,5 +34,7 @@ public class Sedan implements Automobile {
 	public String toString() {
 		return String.format("Make:%s, Model:%s, Price:%s", make, model, price);
 	}
+
+
 
 }
