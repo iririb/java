@@ -13,11 +13,15 @@ public interface Automobile {
 	
 	Double getPrice();
 	
+	static String getFormattedCalendarString() {
+		Calendar now = Calendar.getInstance();		
+		return String.format("%s-%s-%s", now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH),now.get(Calendar.YEAR));
+
+	}
 	// however if we going to add a new method, we can implement using the keyword default
 	// using this method it will not cause other class that already impelent this interface error
 	default String getReleaseDate() {
-		Calendar now = Calendar.getInstance();
-		return String.format("%s-%s-%s", now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH),now.get(Calendar.YEAR));
+		return getFormattedCalendarString();
 	}
 
 }
