@@ -1,6 +1,7 @@
 package test.keyword;
 
-public class Lamborghini implements SportsCar{
+// inheritance abstract class not allowed but multiple interface inheritance is allowed
+public class Lamborghini implements SportsCar, Automobile{
 
 	private String make;
 	private String model;
@@ -13,6 +14,7 @@ public class Lamborghini implements SportsCar{
 		this.price = price;
 		this.topSpeed = topSpeed;
 	}
+	
 	@Override
 	public String getMake() {
 		return make;
