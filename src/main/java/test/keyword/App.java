@@ -3,8 +3,8 @@ package test.keyword;
 public class App {
 	public static void main(String[] args) {
 
-		Automobile huracan = new Lamborghini("Huracan", 1200000.0);
-		SportsCar aventador = new Lamborghini("Aventador", 1220000.0);
+		Automobile huracan = new Lamborghini("Huracan", 1200000.0, 320);
+		SportsCar aventador = new Lamborghini("Aventador", 1220000.0, 340);
 
 		System.out.println(huracan);
 		System.out.println(aventador);
