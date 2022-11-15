@@ -3,19 +3,28 @@ package test.keyword;
 import java.sql.ResultSet;
 
 public class App {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 
-		ClassLoader bootStrapClassLoader = String.class.getClassLoader();
-		System.out.println(bootStrapClassLoader);
-		
-		ClassLoader platformClassLoader = ResultSet.class.getClassLoader();
-		System.out.println(platformClassLoader);
-		System.out.println(platformClassLoader.getParent());
+		// we pass something not exist
+		// this will cause error
+		// Class<?> someClass = Class.forName("test.keyword.notexist", true, Employee.class.getClassLoader());	
 		
 		ClassLoader appClassLoader = Employee.class.getClassLoader();
 		System.out.println(appClassLoader);
-		System.out.println(appClassLoader.getParent());
-		System.out.println(appClassLoader.getParent().getParent());
+		ClassLoader platformClassLoader = appClassLoader.getParent();
+		System.out.println(platformClassLoader);
+
+		// when not sure use ? mark
+		Class<?> someApplicationClass = appClassLoader.loadClass("org.json.JSONObject");
+		System.out.println(someApplicationClass);
+		
+		// however below will cause error because JSONObject not in platform area
+		// someApplicationClass = platformClassLoader.loadClass("org.json.JSONObject");
+		// System.out.println(someApplicationClass);
+		
+		// however this wont be an issue because app class loader will cover much more object
+		someApplicationClass = appClassLoader.loadClass("java.sql.ResultSet");//ResultSet is a platform class loader
+		System.out.println(someApplicationClass);
 		
 	}
 }
